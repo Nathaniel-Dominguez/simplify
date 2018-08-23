@@ -2,6 +2,7 @@
 var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
 var express = require('express');
+var flash = require('connect-flash')
 var passport = require('./config/passportConfig');
 var session = require('express-session');
 
@@ -17,6 +18,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
