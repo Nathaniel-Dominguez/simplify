@@ -22,6 +22,13 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Custom middleware - FUN!
+app.use(function(req, res, next) {
+	res.locals.currentUser = req.user;
+	res.locals.alerts = req.flash();
+	next();
+});
+
 // Include controllers and routes
 app.use('/auth', require('./controllers/auth'));
 app.use('/profile', require('./controllers/profile'));

@@ -45,8 +45,8 @@ router.post('/signup', function(req, res) {
 			res.redirect('/auth/login');
 		}
 	}).catch(function(err) {
-		console.log(err);
-		res.send(err);
+		req.flash('error', err.message)
+		res.redirect('/auth/signup');
 	});
 });
 

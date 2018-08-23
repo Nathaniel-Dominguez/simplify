@@ -27,7 +27,7 @@ passport.use(new passportLocalStrategy({
 		where: { email: email }
 	}).then(function(foundUser) {
 		if(!foundUser || !foundUser.isValidPassword(password)) {
-			callback('Invalid User or Password', null);
+			callback(null, null);
 		}
 		else {
 			callback(null, foundUser);
