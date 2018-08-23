@@ -14,9 +14,11 @@ app.use(ejsLayouts);
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Include controllers and routes
-
+app.use('/auth', require('./controllers/auth'));
+app.use('/profile', require('./controllers/profile'));
 
 // Define routes
+
 // Home route
 app.get('/', function(req, res) {
 	res.render('home');
