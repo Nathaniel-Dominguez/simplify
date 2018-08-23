@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Define routes
 // Home route
 app.get('/', function(req, res) {
-	res.send('Ohai mark from home');
+	res.render('home');
 });
 
 
