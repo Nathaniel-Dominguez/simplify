@@ -41,7 +41,7 @@ router.post('/signup', function(req, res) {
 			})(req, res);
 		}
 		else { // User messed up, they already have an account in the database
-			// TODO: Send the user an error msg!
+			req.flash('error', err.message);
 			res.redirect('/auth/login');
 		}
 	}).catch(function(err) {
@@ -51,7 +51,9 @@ router.post('/signup', function(req, res) {
 });
 
 router.get('/logout', function(req, res) {
-	res.send('Logout route');
+	req.logout(); // logs out of session
+	req.flash('succes', 'Successfully logged out!');
+	res.redirect('/');
 });
 
 module.exports = router;
