@@ -26,4 +26,15 @@ This way I don't have to build it from scratch everytime I need to use a login, 
 | dob | Date | - |
 | admin | Boolean | Admin or normal user |
 
-> NOTE: Change these fields in both model and migration files BEFORE running sequelize db:migrate
+> NOTE: Change these fields in both model and migration files BEFORE running sequelize db:migrate E.G Remove unecessary fields add required fields
+
+### Defualt Routes Supplied
+| METHOD | Route | Location | Purpose |
+| ------ | ------------- | ----------------- |  --------------------------------------------------------------- |
+| GET | / | index.js | Home Page |
+| GET |	/auth/login | controllers/profile.js | Form for login |
+| POST | /auth/login | controllers/auth.js | Login and authenticate user |
+| GET |	/auth/signup | controllers/auth.js | Form to register as a user |
+| POST | /auth/signup | controllers/auth.js | Creates new user and checks for duplicates |
+| GET |	/auth/logout | controllers/auth.js | Log out and redirect to home |
+| GET |	/profile | controllers/auth.js | Needs to be visited only by a logged in user otherwise redirect to home |
