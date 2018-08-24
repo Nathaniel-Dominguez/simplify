@@ -47,12 +47,25 @@ This way I don't have to build it from scratch everytime I need to use a login, 
 git clone <repo_link> <new_name>
 ```
 
-#### 2. Create a new database for your new project 
+#### 2. Install node modules from `package.json`
+
+```
+npm install
+```
+
+#### 3. Customize with project name
+
+* Title in the layout.ejs
+* Logo in the navbar
+* Description/Repo link in package.json
+* Update Readme
+
+#### 4. Create a new database for your new project 
 
 ```
 createdb <new_db_name>
 ```
-#### 3. Open `config.json` and change the following
+#### 5. Open `config.json` and change the following
 
 * Change database name to what you created in step 2
 * Set username/password for your local environment
@@ -60,31 +73,25 @@ createdb <new_db_name>
 
 > NOTE: If changing from Postgres, remember to change your node_modules E.G npm install mysql 
 
-#### 4. Check models and migrations for your needs
+#### 6. Check models and migrations for your needs
 
 For example if you don't need the `admin` column, you will want to delete it from both the migration and the model for the user. Likewise if you need to add something, add in both files.
 
 Just make sure they're both the same.
 
-#### 5. Run the database migrations
+#### 7. Run the database migrations
 
 ```
 sequelize db:migrate
 ```  
 
-#### 6. Add a `.env` with a SESSION_SECRET key
+#### 8. Add a `.env` with a SESSION_SECRET key
 
 This can be set to whatever you would like 
 
 > NOTE: It should already be in the .gitignore file
 
-#### 7. Install node modules from `package.json`
-
-```
-npm install
-```
-
-#### 8. Run your server and make sure everything works
+#### 9. Run your server and make sure everything works
 
 If you have nodemon installed globally:
 ```
@@ -96,7 +103,7 @@ Otherwise:
 node index.js
 ```
 
-#### 9. Create a new repo for the new project to live in
+#### 10. Create a new repo for the new project to live in
 
 * Create a new repo on your personal Github
 * Delete the old remote to origin
