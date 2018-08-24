@@ -1,3 +1,6 @@
+// Require .env file's variables
+require('dotenv').config();
+
 // Require needed modules
 var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
@@ -5,6 +8,7 @@ var express = require('express');
 var flash = require('connect-flash')
 var passport = require('./config/passportConfig');
 var session = require('express-session');
+
 
 // Declare app variable
 var app = express();
@@ -14,7 +18,7 @@ app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
-	secret: 'abc',
+	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: true
 }));
