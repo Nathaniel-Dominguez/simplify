@@ -45,7 +45,7 @@ passport.use(new passportLocalStrategy({
 passport.use(new passportFacebookStrategy({
 	clientID: process.env.FB_APP_ID,
 	clientSecret: process.env.FB_APP_SECRET,
-	callbackUrl: process.env.BASE_URL + '/auth/callback/facebook', 
+	callbackURL: process.env.BASE_URL + '/auth/callback/facebook', 
 	profileFields: ['id', 'email', 'displayName'],
 	enableProof: true
 }, function(accessToken, refreshToken, profile, done) {
@@ -75,7 +75,7 @@ passport.use(new passportFacebookStrategy({
 			var usernameArr = profile.displayName.split(' ');
 
 			db.user.findOrCreate({
-				where: { facebookId: profile.id }
+				where: { facebookId: profile.id },
 				defaults: {
 					facebookToken : accessToken,
 					email: facebookEmail,
