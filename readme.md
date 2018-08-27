@@ -28,7 +28,7 @@ Simple Spotify with social media :p
 
 ### Defualt Routes Supplied
 | METHOD | Route | Location | Purpose |
-| ------ | ------------- | ----------------- |  --------------------------------------------------------------- |
+| ------ | ------------- | ----------------- |  ------------------------------------------------------------------------- |
 | GET | / | index.js | Home Page |
 | GET |	/auth/login | controllers/profile.js | Form for login |
 | POST | /auth/login | controllers/auth.js | Login and authenticate user |
