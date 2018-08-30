@@ -3,11 +3,14 @@ require('dotenv').config();
 
 // Require needed modules
 var bodyParser = require('body-parser');
+var cloudinary = require('cloudinary');
 var ejsLayouts = require('express-ejs-layouts');
 var express = require('express');
 var flash = require('connect-flash')
+var multer = require('multer');
 var passport = require('./config/passportConfig');
 var session = require('express-session');
+var upload = multer({ dest: './uploads' });
 
 
 // Declare app variable
@@ -44,6 +47,13 @@ app.get('/', function(req, res) {
 	res.render('home');
 });
 
+app.post('/', upload.single('myFile'), function(req, res) {
+	console.log('req.file.path:', req.file.path);
+	cloudinary.v2.uploader.upload(req.file.path, { resource_type: 'video' }, function(error, result) {
+		console.log(result, error);
+		res.render('song', { url: result.secure_url });
+	});
+});
 
 // HEY LISTEN NAVI
 app.listen(3000, function() {
