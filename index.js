@@ -58,6 +58,17 @@ app.get('/', function(req, res) {
 	res.render('home');
 });
 
+// Route for list of all music
+app.get('/music/index', function(req, res) {
+	res.send('index')
+})
+
+// Error route
+app.get('*', function(req, res) {
+	console.log('wildcard route');
+	res.render('error');
+});
+
 // Upload route for music to cloudinary
 app.post('/', upload.single('myFile'), function(req, res) {
 	console.log('req.file.path:', req.file.path);
