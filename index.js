@@ -1,6 +1,9 @@
 // Require .env file's variables
 require('dotenv').config();
 
+// Require models
+var db = require('./models');
+
 // Require needed modules
 var bodyParser = require('body-parser');
 var cloudinary = require('cloudinary');
@@ -12,6 +15,12 @@ var passport = require('./config/passportConfig');
 var session = require('express-session');
 var upload = multer({ dest: './uploads' });
 
+// This makes the session use sequelize to write session data to a db table
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
+var sessionStore = new SequelizeStore({
+	db: db.sequelize,
+	expiration: 30 * 69 * 1000 // expire in  whenever
+});
 
 // Declare app variable
 var app = express();
@@ -23,8 +32,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
 	secret: process.env.SESSION_SECRET,
 	resave: false,
-	saveUninitialized: true
+	saveUninitialized: true,
+	store: sessionStore
 }));
+sessionStore.sync(); // creates the sessions table
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -47,6 +58,7 @@ app.get('/', function(req, res) {
 	res.render('home');
 });
 
+// Upload route for music to cloudinary
 app.post('/', upload.single('myFile'), function(req, res) {
 	console.log('req.file.path:', req.file.path);
 	cloudinary.v2.uploader.upload(req.file.path, { resource_type: 'video' }, function(error, result) {
