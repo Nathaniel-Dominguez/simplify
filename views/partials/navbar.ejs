@@ -1,15 +1,29 @@
-  <nav>
-    <div class="nav-wrapper #1976d2 blue darken-2">
-      <a href="#" class="brand-logo">Simplify</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
-        <% if(currentUser) {%>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/auth/logout">Logout</a></li>
-        <% } else { %>
-          <li><a href="/auth/login">Login</a></li>
-          <li><a href="/auth/signup">Signup</a></li>
-        <%}%>
-      </ul>
-    </div>
-  </nav>
+<nav>
+  <div class="nav-wrapper #1976d2 blue darken-2">
+    <a href="#!" class="brand-logo">Simplify</a>
+    <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Home</a></li>
+      <% if(currentUser) {%>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/signup">Signup</a></li>
+      <%}%>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-menu">
+  <li><a href="/">Home</a></li>
+    <% if(currentUser) {%>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/auth/logout">Logout</a></li>
+    <% } else { %>
+      <li><a href="/auth/login">Login</a></li>
+      <li><a href="/auth/signup">Signup</a></li>
+  <%}%>
+</ul>
+
+<script type="text/javascript"></script>
