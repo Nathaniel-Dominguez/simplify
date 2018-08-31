@@ -40,6 +40,7 @@ Simple Spotify with social media :p
 | GET | /tracks/:id | controllers/tracks.js | View information about and listen to a specific song |
 | GET | /tracks/new | controllers/tracks.js | A form for uploading tracks and information about it |
 | POST | /tracks | controllers/tracks.js | upload and create a track post |
+| PUT | /tracks/edit/:id | controllers/tracks.js | Edit a previously uploaded track, preferably only if you are the author |
 | DELETE | /tracks/:id | controllers/tracks.js | Delete a track post (preferably only if admin) |
 | GET | /tags | controllers/tags.js | View an index of all tags |
 | GET | /tags/:id | controllers/tags.js | Get a specific tags page and view their posts |
