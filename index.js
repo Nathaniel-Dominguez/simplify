@@ -49,8 +49,11 @@ app.use(function(req, res, next) {
 
 // Include controllers and routes
 app.use('/auth', require('./controllers/auth'));
+//app.use('/comments', require('./controllers/comments'));
 app.use('/profile', require('./controllers/profile'));
+//app.use('/tags', require('./controllers/tags'));
 app.use('/tracks', require('./controllers/tracks'));
+
 
 // Define routes
 

@@ -26,7 +26,7 @@ Simple Spotify with social media :p
 
 > NOTE: Change these fields in both model and migration files BEFORE running sequelize db:migrate E.G Remove unecessary fields add required fields
 
-### Defualt Routes Supplied
+### Routes 
 | METHOD | Route | Location | Purpose |
 | ------ | ------------- | ----------------- |  ------------------------------------------------------------------------- |
 | GET | / | index.js | Home Page |
@@ -36,11 +36,15 @@ Simple Spotify with social media :p
 | POST | /auth/signup | controllers/auth.js | Creates new user and checks for duplicates |
 | GET |	/auth/logout | controllers/auth.js | Log out and redirect to home |
 | GET |	/profile | controllers/auth.js | Needs to be visited only by a logged in user otherwise redirect to home |
-| GET | /music | controllers/music.js | An index to sort and select music that's been uploaded |
-| GET | /music/:id | controllers/music.js | View information about and listen to a specific song |
-| GET | /music/new | controllers/music.js | A form for uploading music and information about it |
-| POST | /music | controllers/music.js | upload and create a post |
-
+| GET | /tracks | controllers/tracks.js | An index to sort and select tracks that's been uploaded |
+| GET | /tracks/:id | controllers/tracks.js | View information about and listen to a specific song |
+| GET | /tracks/new | controllers/tracks.js | A form for uploading tracks and information about it |
+| POST | /tracks | controllers/tracks.js | upload and create a track post |
+| DELETE | /tracks/:id | controllers/tracks.js | Delete a track post (preferably only if admin) |
+| GET | /tags | controllers/tags.js | View an index of all tags |
+| GET | /tags/:id | controllers/tags.js | Get a specific tags page and view their posts |
+| PUT | /tags/edit/:id | controllers/tags.js | A form to edit a spcfic tag |
+| DELETE | /tags/:id | controllers/tags.js | Delete a specific tag |
 
 
 
