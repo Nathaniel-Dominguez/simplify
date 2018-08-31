@@ -36,3 +36,12 @@ Simple Spotify with social media :p
 | POST | /auth/signup | controllers/auth.js | Creates new user and checks for duplicates |
 | GET |	/auth/logout | controllers/auth.js | Log out and redirect to home |
 | GET |	/profile | controllers/auth.js | Needs to be visited only by a logged in user otherwise redirect to home |
+| GET | /music | An index to sort and select music that's been uploaded |
+| GET | /music/:id | View information about and listen to a specific song |
+| GET | /music/new | A form for uploading music and information about it |
+| POST | /music | upload and create a post |
+
+
+
+
+
