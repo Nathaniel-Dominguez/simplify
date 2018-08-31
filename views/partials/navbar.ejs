@@ -4,8 +4,9 @@
     <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="/">Home</a></li>
-      <li><a href="/music">Music</a></li>
+      <li><a href="/tracks">Music</a></li>
       <% if(currentUser) {%>
+        <li><a href="/tracks/new">Post</a></li>
         <li><a href="/profile">Profile</a></li>
         <li><a href="/auth/logout">Logout</a></li>
       <% } else { %>
@@ -18,8 +19,9 @@
 
 <ul class="sidenav" id="mobile-menu">
   <li><a href="/">Home</a></li>
-  <li><a href="/music">Music</a></li>
+  <li><a href="/tracks">Music</a></li>
     <% if(currentUser) {%>
+      <li><a href="/tracks/new">Post</a></li>
       <li><a href="/profile">Profile</a></li>
       <li><a href="/auth/logout">Logout</a></li>
     <% } else { %>

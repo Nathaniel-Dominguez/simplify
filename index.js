@@ -50,6 +50,7 @@ app.use(function(req, res, next) {
 // Include controllers and routes
 app.use('/auth', require('./controllers/auth'));
 app.use('/profile', require('./controllers/profile'));
+app.use('/tracks', require('./controllers/tracks'));
 
 // Define routes
 
@@ -58,11 +59,6 @@ app.get('/', function(req, res) {
 	res.render('home');
 });
 
-// Route for list of all music
-app.get('/music/index', function(req, res) {
-	res.send('index')
-})
-
 // Error route
 app.get('*', function(req, res) {
 	console.log('wildcard route');
@@ -70,11 +66,11 @@ app.get('*', function(req, res) {
 });
 
 // Upload route for music to cloudinary
-app.post('/', upload.single('myFile'), function(req, res) {
+app.post('/tracks/new', upload.single('myFile'), function(req, res) {
 	console.log('req.file.path:', req.file.path);
 	cloudinary.v2.uploader.upload(req.file.path, { resource_type: 'video' }, function(error, result) {
 		console.log(result, error);
-		res.render('song', { url: result.secure_url });
+		res.render('/tracks/show', { url: result.secure_url });
 	});
 });
 

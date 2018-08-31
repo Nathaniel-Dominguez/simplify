@@ -44,6 +44,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   user.associate = function(models) {
     // associations can be defined here
+    //models.author.hasMany(models.track);
   };
 
   user.prototype.isValidPassword = function(typedPassword) {
