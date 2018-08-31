@@ -27,5 +27,13 @@ router.get('/new', function(req, res) {
 
 // Route for getting specific track
 
+// Route for posting an audio file / post
+router.post('/', function(req, res) {
+	if(req.body.userId > 0) {
+		db.Track.create(req.body).then(function(createdTrack) {
+			
+		})
+	}
+})
 
 module.exports = router;
