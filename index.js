@@ -75,6 +75,6 @@ app.post('/tracks/new', upload.single('myFile'), function(req, res) {
 });
 
 // HEY LISTEN NAVI
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
 	console.log('Hey Listen! - Navi')
 });
