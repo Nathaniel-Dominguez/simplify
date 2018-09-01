@@ -7,7 +7,7 @@ var db = require('../models');
 // Define routes
 // Route for list of all music
 router.get('/', function(req, res) {
-	db.Track.findAll().then(function(allTracks) {
+	db.track.findAll().then(function(allTracks) {
 		res.render('tracks/index', { tracks: allTracks });
 	}).catch(function(err) {
 		console.log(err);
@@ -27,9 +27,9 @@ router.get('/new', function(req, res) {
 
 // Route for getting specific track 
 router.get('/:id', function(req, res) {
-	db.Track.findOne({
+	db.track.findOne({
 		where: { id: req.params.id },
-		include: [db.Track, db.comment, db.tag]
+		include: [db.track, db.comment, db.tag]
 	}).then(function(foundTrack) {
 		db.user.findAll().then(function(allUsers) {
 			res.render('tracks/show', { track: foundTrack, users: allUsers });
@@ -46,7 +46,7 @@ router.get('/:id', function(req, res) {
 // Route for posting an audio file / post
 router.post('/', function(req, res) {
 	if(req.body.userId > 0) {
-		db.Track.create(req.body).then(function(createdTrack) {
+		db.track.create(req.body).then(function(createdTrack) {
 			// Parse tags (if there are any)
 			var tags = [];
 			if(req.body.tags) {

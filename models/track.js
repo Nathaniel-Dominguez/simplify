@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Track = sequelize.define('Track', {
+  const track = sequelize.define('track', {
     title: DataTypes.STRING,
     artist: DataTypes.STRING,
     content: DataTypes.TEXT,
@@ -8,9 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     trackUrl: DataTypes.STRING,
     userId: DataTypes.INTEGER
   }, {});
-  Track.associate = function(models) {
+  track.associate = function(models) {
     // associations can be defined here
-    //models.track.belongsTo(models.user);
+    models.track.belongsTo(models.user);
+    models.track.hasMany(models.comment);
+    models.track.belongsToMany(models.tag, { through: 'trackTags' });
   };
-  return Track;
+  return track;
 };
