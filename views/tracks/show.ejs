@@ -1,4 +1,50 @@
-<h2>Song page</h2>
+<h2>
+	<%= track.title %>
+</h2>
+<h4>
+	By
+	<a href="/tracks/<%= track.userId%>">
+		<%= track.user.firstname %>
+	</a>
+</h4>
+<div>
+	<h5>Tags</h5>
+	<% if(track.tags && track.tags.length > 0) {%>
+	<% track.tags.forEach(function(t) {%>
+		<a href="/tags/<%= t.id %>">#<%= t.name %></a>
+	<% }); %>
+	<% } else { %>
+		<p>No tags yet!</p>
+	<%}%>
+</div>
+
+<p>
+	<%= track.content %>
+</p>
+
+<hr>
+
+<div>
+	<h3>Comments</h3>
+	<% track.comments.forEach(function(c) {%>
+		<div><%= c.content %></div>
+		<div><em>- Someone</em></div>
+		<hr>
+	<% }); %>	
+</div>
+<div>
+	<h3>What do you think of the track?</h3>
+	<form method="POST" action="/comments">
+		<div class="form-group">
+			<label>Comment:</label>
+			<textarea name="content" class="form-control"></textarea>
+		</div>
+
+		<input type="hidden" name="trackId" value="<%= track.id %>">
+		<input type="submit" value="Drop your 2 cents on the track: Or just don't" class="btn btn-warning">
+	</form>
+</div>
+
 <video 
 	src="<%= url %>"
 	controls
