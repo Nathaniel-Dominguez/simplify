@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 	});
 });
 
-// Route for making a new music post
+// Route for the form to make a music post
 router.get('/new', function(req, res) {
 	db.user.findAll().then(function(allUsers) {
 		res.render('tracks/new', { users: allUsers });
