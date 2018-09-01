@@ -1,5 +1,9 @@
 # Simplify
-Simple Spotify with social media :p
+Simple Spotify 
+
+## Live Heroku Link
+
+* https://simplify-audio.herokuapp.com/
 
 ## What it includes 
 
