@@ -1,1 +1,39 @@
-<h2>show track page</h2>
+<div class="container">
+	<div class="row">
+		<div class="col s6">
+			<h2>
+				<%= track.title %>
+			</h2>
+		</div>
+		<div class="col s3">
+			<img class="responsive-img" src="<%= track.albumArt %>">
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col s6">
+			<h3>
+				<%= track.artist %>
+			</h3>
+		</div>
+		<div class="col s6">
+			<video 
+			src="<%= track.trackUrl %>"
+			controls
+		 	autoplay
+		 	class="cld-video-player">
+		 	</video>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col s6">
+			<p>
+				<%= track.content %>
+			</p>
+		</div>
+		<div class="col s6">
+			<h5>Post Written By:<%= track.user.firstname %></h5>
+		</div>
+	</div>
+</div>
