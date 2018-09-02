@@ -46,7 +46,14 @@ router.get('/:id', function(req, res) {
 // Route for posting an audio file / post
 router.post('/', function(req, res) {
 	if(req.user.id > 0) {
-		db.track.create(req.body).then(function(createdTrack) {
+		db.track.create({
+			title: req.body.title,
+			artist: req.body.artist,
+			content: req.body.content,
+			albumArt: req.body.albumArt,
+			trackUrl: req.body.trackUrl,
+			userId: req.user.id
+		}).then(function(createdTrack) {
 			// Parse tags (if there are any)
 			var tags = [];
 			if(req.body.tags) {
@@ -78,7 +85,6 @@ router.post('/', function(req, res) {
 		});
 	}
 	else {
-		console.log(req.body.user);
 		res.redirect('/tracks/new');
 	}
 });
