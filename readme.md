@@ -45,7 +45,7 @@ Simple Spotify
 | GET | /tracks/new | controllers/tracks.js | A form for uploading tracks and information about it |
 | POST | /tracks | controllers/tracks.js | upload and create a track post |
 | PUT | /tracks/edit/:id | controllers/tracks.js | Edit a previously uploaded track, preferably only if you are the author |
-| DELETE | /tracks/:id | controllers/tracks.js | Delete a track post (preferably only if admin) |
+| DELETE | /tracks/:id | controllers/tracks.js | Delete a track post (preferably only if admin/ creator of the post) |
 | GET | /tags | controllers/tags.js | View an index of all tags |
 | GET | /tags/:id | controllers/tags.js | Get a specific tags page and view their posts |
 | PUT | /tags/edit/:id | controllers/tags.js | A form to edit a spcfic tag |
