@@ -78,7 +78,7 @@ router.post('/', function(req, res) {
 		});
 	}
 	else {
-		console.log(req.body);
+		console.log(req.body.userId);
 		res.redirect('/tracks/new');
 	}
 });
