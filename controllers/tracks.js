@@ -29,9 +29,10 @@ router.get('/new', function(req, res) {
 router.get('/:id', function(req, res) {
 	db.track.findOne({
 		where: { id: req.params.id },
-		include: [db.track, db.comment, db.tag]
+		include: [db.comment, db.tag]
 	}).then(function(foundTrack) {
-		db.user.findAll().then(function(allUsers) {
+		console.log(foundTrack);
+		db.user.findById(req.user.id).then(function(allUsers) {
 			res.render('tracks/show', { track: foundTrack, users: allUsers });
 		}).catch(function(err) {
 			console.log(err);
@@ -77,7 +78,7 @@ router.post('/', function(req, res) {
 				});
 			} 
 			else {
-				res.redirect('/tracks/', + createdTrack.id);
+				res.redirect('/tracks/' + createdTrack.id);
 			}
 		}).catch(function(err) {
 			console.log(err);

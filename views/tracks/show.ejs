@@ -4,7 +4,7 @@
 <h4>
 	By
 	<a href="/users/<%= track.userId%>">
-		<%= track.user.firstname.lastname %>
+		<%= track.userId.firstname %>
 	</a>
 </h4>
 <div>
@@ -44,10 +44,3 @@
 		<input type="submit" value="Drop your 2 cents on the track: Or just don't" class="btn btn-warning">
 	</form>
 </div>
-
-<video 
-	src="<%= url %>"
-	controls
-	autoplay
-	class="cld-video-player">
-</video>
