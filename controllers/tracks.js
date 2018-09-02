@@ -45,7 +45,7 @@ router.get('/:id', function(req, res) {
 
 // Route for posting an audio file / post
 router.post('/', function(req, res) {
-	if(req.body.userId > 0) {
+	if(req.user.id > 0) {
 		db.track.create(req.body).then(function(createdTrack) {
 			// Parse tags (if there are any)
 			var tags = [];
@@ -78,7 +78,7 @@ router.post('/', function(req, res) {
 		});
 	}
 	else {
-		console.log(req.body.userId);
+		console.log(req.body.user);
 		res.redirect('/tracks/new');
 	}
 });
