@@ -28,16 +28,14 @@ router.get('/new', function(req, res) {
 // Route for getting specific track 
 router.get('/:id', function(req, res) {
 	db.track.findOne({
-		where: { id: req.params.id },
-		include: [db.comment, db.tag]
+		where: { id: req.params.id, userId: req.user.id },
+		include: [db.comment, db.tag, db.user]
 	}).then(function(foundTrack) {
 		console.log(foundTrack);
-		db.user.findById(req.user.id).then(function(allUsers) {
-			res.render('tracks/show', { track: foundTrack, users: allUsers });
+		res.render('tracks/show', { track: foundTrack });
 		}).catch(function(err) {
 			console.log(err);
 			res.render('error');
-		});
 	}).catch(function(err) {
 		console.log(err);
 		res.send('failed');
