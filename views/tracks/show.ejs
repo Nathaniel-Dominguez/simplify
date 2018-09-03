@@ -6,6 +6,9 @@
 			</h2>
 		</div>
 		<div class="col s3">
+			<h5>By:<%= track.user.firstname %></h5>
+		</div>
+		<div class="col s3">
 			<img class="responsive-img" src="<%= track.albumArt %>">
 		</div>
 	</div>
@@ -27,13 +30,26 @@
 	</div>
 	<hr>
 	<div class="row">
-		<div class="col s6">
+		<div class="col s8">
 			<p>
 				<%= track.content %>
 			</p>
 		</div>
-		<div class="col s6">
-			<h5>Post Written By:<%= track.user.firstname %></h5>
+		<div class="col 4">
+			<h5>Tags</h5>
+			<% if(track.tags && track.tags.length > 0) { %>
+				<% track.tags.forEach(function(t) { %>
+					<a href="/tags/<%= t.id %>">#<%= t.name %></a>
+				<% }); %>
+			<% } else { %>
+				<p>No tags yet!</p>
+			<% } %>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="">
+			
 		</div>
 	</div>
 </div>
