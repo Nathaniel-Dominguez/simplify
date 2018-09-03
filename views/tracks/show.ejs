@@ -35,7 +35,7 @@
 				<%= track.content %>
 			</p>
 		</div>
-		<div class="col 4">
+		<div class="col s4">
 			<h5>Tags</h5>
 			<% if(track.tags && track.tags.length > 0) { %>
 				<% track.tags.forEach(function(t) { %>
@@ -48,8 +48,26 @@
 	</div>
 	<hr>
 	<div class="row">
-		<div class="">
-			
+		<div class="col s12">
+			<div class="col s4">
+				<h4>Comments</h4>
+				<% track.comments.forEach(function(c) { %>
+					<div><%= c.content %></div>
+					<div><em>- Someone</em></div>
+				<%	}); %>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="input-field col s12">
+			<h5>Comment below :)</h5>
+			<form method="POST" action="/comments">
+				<textarea name="content" class="materialize-textarea"></textarea>
+				<input type="hidden" name="trackId" value="<%= track.id %>">
+				<input type="hidden" name="userId" value="<%= currentUser.id %>">
+				<button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i></button>
+			</form>
 		</div>
 	</div>
 </div>
