@@ -4,7 +4,13 @@
 
 	<h4>Tracks associated with #<%= tag.name %></h4>
 
-	<% tag.tracks.forEach(function(a) { %>
-		<div
+	<% tag.tracks.forEach(function(t) { %>
+		<div class="divider"></div>
+		<div class="section">
+			<a href="/tracks/<%= t.id %>">
+				<%= t.title %>
+			</a>		
+		</div>
+	<% }); %>
 	</div>
 </div>
