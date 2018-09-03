@@ -27,8 +27,9 @@ router.get('/edit/:id', function(req, res) {
 router.get('/:id', function(req, res) {
 	db.tag.findOne({
 		where: { id: req.params.id },
-		include: [db.Track]
+		include: [db.track]
 	}).then(function(tag) {
+		console.log(tag);
 		res.render('tags/show', { tag: tag });
 	});
 });

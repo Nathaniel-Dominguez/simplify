@@ -33,7 +33,7 @@ router.get('/:id', function(req, res) {
 	}).then(function(foundTrack) {
 		console.log(foundTrack);
 		res.render('tracks/show', { track: foundTrack });
-		}).catch(function(err) {
+	}).catch(function(err) {
 			console.log(err);
 			res.render('error');
 	}).catch(function(err) {
