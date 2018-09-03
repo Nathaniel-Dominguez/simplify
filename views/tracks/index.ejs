@@ -1,11 +1,14 @@
-<h2>List of all Tracks</h2>
+<div class="row">
+	<div class="col s12">
+		<h2>List of all Tracks</h2>
 
-<%	tracks.forEach(function(t) {%>
-	<hr>
-	<div>
-		<a href="/tracks/<%= t.id %>">
-			<%= t.title %>
-		</a>
-		<hr>
+		<%	tracks.forEach(function(t) {%>
+			<div class="divider"></div>
+				<div class="section">
+					<a href="/tracks/<%= t.id %>">
+						<%= t.title %>
+					</a>
+				</div>
+		<% }); %>
 	</div>
-<% }); %>
+</div>

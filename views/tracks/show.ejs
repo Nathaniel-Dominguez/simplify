@@ -1,73 +1,69 @@
-<div class="container">
-	<div class="row">
-		<div class="col s6">
-			<h2>
-				<%= track.title %>
-			</h2>
-		</div>
-		<div class="col s3">
-			<h5>By:<%= track.user.firstname %></h5>
-		</div>
-		<div class="col s3">
-			<img class="responsive-img" src="<%= track.albumArt %>">
-		</div>
+<div class="row">
+	<div class="col s6">
+		<h2>
+			<%= track.title %>
+		</h2>
 	</div>
-	<hr>
-	<div class="row">
-		<div class="col s6">
-			<h3>
-				<%= track.artist %>
-			</h3>
-		</div>
-		<div class="col s6">
-			<video 
-			src="<%= track.trackUrl %>"
-			controls
-		 	autoplay
-		 	class="cld-video-player">
-		 	</video>
-		</div>
+	<div class="col s3">
+		<h5>By:<%= track.user.firstname %></h5>
 	</div>
-	<hr>
-	<div class="row">
-		<div class="col s8">
-			<p>
-				<%= track.content %>
-			</p>
-		</div>
-		<div class="col s4">
-			<h5>Tags</h5>
-			<% if(track.tags && track.tags.length > 0) { %>
-				<% track.tags.forEach(function(t) { %>
-					<a href="/tags/<%= t.id %>">#<%= t.name %></a>
-				<% }); %>
-			<% } else { %>
-				<p>No tags yet!</p>
-			<% } %>
-		</div>
+	<div class="col s3">
+		<img class="responsive-img" src="<%= track.albumArt %>">
 	</div>
-	<hr>
-	<div class="row">
-		<div class="col s12">
-			<div class="col s4">
-				<h4>Comments</h4>
-				<% track.comments.forEach(function(c) { %>
-					<div><%= c.content %></div>
-					<div><em>- Someone</em></div>
-				<%	}); %>
-			</div>
-		</div>
+</div>
+ <div class="divider"></div>
+<div class="row">
+	<div class="col s6">
+		<h3>
+			<%= track.artist %>
+		</h3>
 	</div>
-	<hr>
-	<div class="row">
-		<div class="input-field col s12">
-			<h5>Comment below :)</h5>
-			<form method="POST" action="/comments">
-				<textarea name="content" class="materialize-textarea"></textarea>
-				<input type="hidden" name="trackId" value="<%= track.id %>">
-				<input type="hidden" name="userId" value="<%= currentUser.id %>">
-				<button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i></button>
-			</form>
-		</div>
+	<div class="col s6">
+		<video 
+		src="<%= track.trackUrl %>"
+		controls
+	 	autoplay
+	 	class="cld-video-player">
+	 	</video>
 	</div>
+</div>
+ <div class="divider"></div>
+<div class="row">
+	<div class="col s8">
+		<p>
+			<%= track.content %>
+		</p>
+	</div>
+	<div class="col s4">
+		<h5>Tags</h5>
+		<% if(track.tags && track.tags.length > 0) { %>
+			<% track.tags.forEach(function(t) { %>
+				<a href="/tags/<%= t.id %>">#<%= t.name %></a>
+			<% }); %>
+		<% } else { %>
+			<p>No tags yet!</p>
+		<% } %>
+	</div>
+</div>
+ <div class="divider"></div>
+<div class="row">
+	<div class="input-field col s7">
+		<h5>Leave A Comment:)</h5>
+		<form method="POST" action="/comments">
+			<textarea name="content" class="materialize-textarea"></textarea>
+			<input type="hidden" name="trackId" value="<%= track.id %>">
+			<input type="hidden" name="userId" value="<%= currentUser.id %>">
+			<button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i></button>
+		</form>
+	</div>
+	<div class="col s5">
+		<h4>Comments</h4>
+		<% track.comments.forEach(function(c) { %>
+			<div><%= c.content %></div>
+			<div>By:<%= c.userId %></div>
+			<hr>
+		<%	}); %>
+	</div>
+</div>
+<div class="row">
 </div>
