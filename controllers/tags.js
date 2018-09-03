@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 // Route for form for editing tags
 router.get('/edit/:id', function(req, res) {
 	db.tag.findById(req.params.id).then(function(foundTag) {
-		res.render('tags/index', { tags: tags });
+		res.render('tags/edit', { tag: foundTag });
 	}).catch(function(err) {
 		console.log(err);
 		res.render('error');
