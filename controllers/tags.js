@@ -43,9 +43,9 @@ router.put('/:id', function(req, res) {
 router.delete('/:id', function(req, res) {
 	db.tag.findOne({
 		where: { id: req.params.id },
-		include: [db.Track]
+		include: [db.track]
 	}).then(function(foundTag) {
-		async.forEach(foundTag.Tracks, function(t, done) {
+		async.forEach(foundTag.tracks, function(t, done) {
 			// Runs for each track
 			// Remove the association from the join table
 			foundTag.removeTrack(t).then(function() {
