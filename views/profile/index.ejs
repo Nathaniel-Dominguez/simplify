@@ -12,3 +12,10 @@
 		<p>Email: <%= currentUser.email %></p>
 	</div>
 </div>
+
+<h4>File Upload</h4>
+<br><br>
+<form enctype="multipart/form-data" method="POST" action="/" >
+	<input type="file" name="myFile"><br>
+	<input type="submit" class="btn btn-success" name="submit">
+</form>

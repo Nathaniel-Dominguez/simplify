@@ -73,7 +73,7 @@ app.post('/', upload.single('myFile'), function(req, res) {
 	console.log('req.file.path:', req.file.path);
 	cloudinary.v2.uploader.upload(req.file.path, { resource_type: 'video' }, function(error, result) {
 		console.log(result, error);
-		res.render('/tracks/show', { url: result.secure_url });
+		res.render('profile/upload', { url: result.secure_url });
 	});
 });
 
