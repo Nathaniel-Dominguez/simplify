@@ -14,15 +14,59 @@ Simple Spotify
 * Connect-Flash for error/success messages 
 * Bcrypt for hashing passwords
 
+### Comment Model
+
+| Column Name | SQL Type | Notes |
+| ----------- | -------- |--------------------------------- |
+| id | Integer| Serial primary key |
+| createdAt | Date | Automatically generated |
+| updatedAt | Date | Automatically generated |
+| trackId | Integer | Generated when attached to track |
+| userId | Integer | Generated when attached to track |
+| content | Text | User input |
+
+### Tag Model
+
+| Column Name | SQL Type | Notes |
+| ----------- | -------- |--------------------------------- |
+| id | Integer| Serial primary key |
+| createdAt | Date | Automatically generated |
+| updatedAt | Date | Automatically generated |
+| name | String | User input |
+
+### Track Model
+
+| Column Name | SQL Type | Notes |
+| ----------- | -------- |--------------------------------- |
+| id | Integer | Serial primary key |
+| createdAt | Date | Automatically generated |
+| updatedAt | Date | Automatically generated |
+| title | String | User input |
+| artist | String | User input |
+| content | Text | User input |
+| albumArt | String | User input |
+| trackUrl | String | User input |
+| userId | Integer | Decided based on which profile is logged in |
+
+### TrackTag Model
+
+| Column Name | SQL Type | Notes |
+| ----------- | -------- |--------------------------------- |
+| id | Integer| Serial primary key |
+| createdAt | Date | Automatically generated |
+| updatedAt | Date | Automatically generated |
+| trackId | Integer | Automatically generated on user input |
+| tagId | Integer | Automatically genereated on user input |
+
 ### User Model
 
 | Column Name | SQL Type | Notes |
 | ----------- | -------- |--------------------------------- |
-| id | Integer| serial primary key |
-| createdAt | Date | automatically generated |
-| updatedAt | Date | automatically generated |
-| firstname | String | - |
-| lastname | String | - |
+| id | Integer| Serial primary key |
+| createdAt | Date | Automatically generated |
+| updatedAt | Date | Automatically generated |
+| firstname | String | User input |
+| lastname | String | User input |
 | email | String | usernameField for login |
 | password | String | hashed with bcrpyt |
 | dob | Date | - |
