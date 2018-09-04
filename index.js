@@ -69,7 +69,7 @@ app.get('*', function(req, res) {
 });
 
 // Upload route for music to cloudinary
-app.post('/tracks/new', upload.single('myFile'), function(req, res) {
+app.post('/', upload.single('myFile'), function(req, res) {
 	console.log('req.file.path:', req.file.path);
 	cloudinary.v2.uploader.upload(req.file.path, { resource_type: 'video' }, function(error, result) {
 		console.log(result, error);

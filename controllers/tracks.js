@@ -43,7 +43,7 @@ router.get('/:id', function(req, res) {
 });
 
 // Route for posting an audio file / post
-router.post('/', upload.single('myFile'), function(req, res) {
+router.post('/', function(req, res) {
 	if(req.user.id > 0) {
 		db.track.create({
 			title: req.body.title,
