@@ -36,8 +36,17 @@ router.get('/:id', function(req, res) {
 
 // Put route for submiting tag edits
 router.put('/:id', function(req, res) {
-	res.send(req.body);
+	console.log(req.body, req.params);
+	db.tag.update(
+		{name: req.body.name},
+		{where: {id: req.params.id}
+	}).then(function() {
+		res.send('successful tag edit');
+	}).catch(function(err) {
+		res.status(500).send('500 error');
+	});
 });
+
 
 // Delete route for deleting a tag
 router.delete('/:id', function(req, res) {
